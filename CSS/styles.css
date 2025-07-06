@@ -1,0 +1,102 @@
+/* CSS Reset */
+
+body, header, nav, main, footer, img, h1, h3, ul{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/* style rules for body and images */
+
+header {
+    background-color:rgb(40, 51, 90);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+h1 {
+    text-align: Left;
+    font-size: 5em;
+    margin: 0;
+    color: #f3eee7;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+Img.Crest {
+    max-width: 80px;
+    max-height: auto;
+    margin-right: 5px
+}
+
+Img.HeroImg {
+    width: 15%;
+    height: 15%;
+    float: left;
+    margin: 0 2em;
+    border-color:#ddd;
+    border-width: 2px;
+    border-style: solid;
+}
+
+/* Style rules for Nav */
+nav a {
+  text-decoration: none;
+  color: inherit;
+  padding: 5px 10px;
+}
+
+nav a:hover {
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+nav {
+    background-color: rgb(40, 51, 90);
+    color: #f3eee7;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 10px;
+    text-align: right;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: Geneva, Arial, sans-serif;
+    font-weight: bold;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+    padding: 0.5em 2em;
+}
+
+p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1em;
+    justify-content: center;
+    line-height: 1.6;
+    padding-top: 1em;
+}
+
+/* Style rules for footer */
+footer {
+    background-color: rgb(40, 51, 90);
+    color: #f3eee7;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.logo {
+    max-height: 50px;
+    width: auto
+}
+
+.round {
+    border-radius: .2em;
+}

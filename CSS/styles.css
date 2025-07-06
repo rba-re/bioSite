@@ -24,7 +24,6 @@ h1 {
 
 Img.Crest {
     max-width: 80px;
-    max-height: auto;
     margin-right: 5px
 }
 
@@ -94,7 +93,6 @@ footer {
 
 .logo {
     max-height: 50px;
-    width: auto
 }
 
 .round {

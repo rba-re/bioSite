@@ -1,10 +1,22 @@
 /* CSS Reset */
 
-body, header, nav, main, footer, img, h1, h3, ul{
+html, body, header, nav, main, footer, img, h1, h3, ul{
   margin: 0;
   padding: 0;
   border: 0;
 }
+
+/* Ensure proper page structure for scrolling */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* style rules for body and images */
 
 header {
@@ -13,11 +25,12 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    border-bottom: 2px solid #102336;
 }
 h1 {
     text-align: Left;
     font-size: 5em;
-    margin: 0;
+    margin-left: 0.5em;
     color: #f3eee7;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -28,13 +41,14 @@ Img.Crest {
 }
 
 Img.HeroImg {
-    width: 15%;
-    height: 15%;
+    width: 200px;
+    height: auto;
     float: left;
-    margin: 0 2em;
+    margin: 0 2em 1em 0;
     border-color:#ddd;
     border-width: 2px;
     border-style: solid;
+    shape-outside: margin-box;
 }
 
 /* Style rules for Nav */
@@ -72,12 +86,20 @@ nav ul li {
     padding: 0.5em 2em;
 }
 
+/* Main content area */
+main {
+    flex: 1;
+    padding: 2em;
+    overflow-wrap: break-word;
+    min-height: calc(100vh - 200px); /* Ensure minimum height for scrolling */
+}
+
 p {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 1em;
-    justify-content: center;
-    line-height: 1.6;
-    padding-top: 1em;
+    line-height: 1.5;
+    margin-bottom: 1em;
+    text-align: justify;
 }
 
 /* Style rules for footer */
@@ -86,9 +108,9 @@ footer {
     color: #f3eee7;
     text-align: center;
     padding: 20px;
-    position: absolute;
-    bottom: 0;
+    margin-top: auto; /* Push footer to bottom using flexbox */
     width: 100%;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -97,4 +119,164 @@ footer {
 
 .round {
     border-radius: .2em;
+}
+
+/*style rules for mobile viewport */
+
+.mobile {
+    display: block;
+}
+
+.tab-desk {
+    display: none;
+}
+
+/* Media Query for Tablet Viewport */
+
+@media screen and (min-width: 630px), print {
+    .tab-desk {
+        display: block;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    nav li {
+        border-top: none;
+        display: inline-block;
+        font-size: 1.25em;
+    }
+
+    nav li a {
+        padding: 0.5em;
+    }
+
+    /* Tablet: Improve image and text layout */
+    Img.HeroImg {
+        width: 250px;
+        margin: 0 2em 1em 0;
+    }
+
+    main {
+        padding: 2em 3em;
+    }
+} 
+
+/* Grid/media query for large desktop */
+
+/* Media Query for Desktop Viewport */
+@media screen and (min-width: 1000px), print {
+  /* Desktop Viewport: Style rules for nav area */
+  nav li {
+    font-size: 1.50em;
+  }
+
+  nav li a {
+    padding: 0.5em 1.5em;
+  }
+
+  nav li a:hover {
+    color: #2a1f14;
+    background-color: #f6eee4;
+    opacity: 0.5;
+  }
+
+  /* Desktop Viewport: style rules for main content */
+  main {
+    padding: 2em 4em;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  Img.HeroImg {
+    width: 300px;
+    margin: 0 3em 1em 0;
+  }
+
+  p {
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+
+  #info ul {
+    margin-left: 5%;
+  }
+
+  .grid {
+    grid-template-columns: auto auto auto;
+    grid-gap: 30px;
+    display: grid;
+  }
+
+  aside {
+    grid-column: 1/ span 3;
+    font-size: 2em;
+  }
+}
+
+/* Media Query for Extra Large Desktop Viewport */
+@media screen and (min-width: 1400px), print {
+  
+  h1 {
+    font-size: 6em;
+    margin-left: 0.6em;
+  }
+  
+  Img.Crest {
+    max-width: 100px;
+    margin-right: 10px;
+  }
+  
+  nav li {
+    font-size: 1.75em;
+  }
+  
+  nav li a {
+    padding: 0.6em 2em;
+  }
+  
+  main {
+    padding: 5em;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  Img.HeroImg {
+    width: 25em;
+    margin: 0 4em 1.5em 0.6em; /* Align with "T" in Tyler */
+    border-width: 3px;
+  }
+  
+  p {
+    font-size: 1.2em;
+    line-height: 1.7;
+    margin-bottom: 1.2em;
+  }
+  
+  footer {
+    padding: 25px;
+  }
+  
+  .logo {
+    max-height: 60px;
+  }
+}
+
+@media screen and (max-width: 629px) {
+  Img.HeroImg {
+    float: none;
+    display: block;
+    margin: 0 auto 1em auto;
+    width: 80%;
+    max-width: 250px;
+  }
+
+  main {
+    padding: 1em;
+  }
+
+  p {
+    text-align: left;
+  }
 }

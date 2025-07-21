@@ -35,9 +35,16 @@ h1 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+h3 {
+    text-align: Left;
+    font-size: 2em;
+    color: #f3eee7;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 Img.Crest {
     max-width: 80px;
-    margin-right: 5px
+    margin-right: 5px;
 }
 
 Img.HeroImg {
@@ -108,7 +115,7 @@ footer {
     color: #f3eee7;
     text-align: center;
     padding: 20px;
-    margin-top: auto; /* Push footer to bottom using flexbox */
+    margin-top: auto;
     width: 100%;
     box-sizing: border-box;
 }

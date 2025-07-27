@@ -32,7 +32,7 @@ h1 {
     text-align: Left;
     font-size: 3em;
     margin-left: 0.5em;
-    color: #f3eee7;
+    color: #ffffff;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -49,8 +49,14 @@ Img.Crest {
     margin-right: 5px;
 }
 
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
 Img.HeroImg {
-    float: none;
     display: block;
     margin: 0 auto 1em auto;
     width: 80%;
@@ -59,16 +65,31 @@ Img.HeroImg {
     border-color:#ddd;
     border-width: 2px;
     border-style: solid;
-    shape-outside: margin-box;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+Img.HobbyImg {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 2px;
 }
 
 /* Navigation styles */
 nav {
     background-color: rgb(40, 51, 90);
-    color: #f3eee7;
+    color: #ffffff;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
 }
 
 nav a {
@@ -87,13 +108,13 @@ nav ul {
     margin: 0;
     text-align: center;
     font-size: 1.2em;
-    font-family: Geneva, Arial, sans-serif;
     font-weight: bold;
 }
 
 nav ul li {
-    display: block;
-    margin-bottom: 10px;
+    display: inline-block;
+    margin-right: 5%;
+    margin-bottom: 0;
     padding: 0.5em 1em;
 }
 
@@ -105,13 +126,25 @@ main {
 }
 
 p {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 1em;
     line-height: 1.5;
     margin-bottom: 1em;
-    text-align: left;
+    text-align: center;
 }
 
+.intro {
+    background-color:#efefef;
+}
+.intro p {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.9em;
+}
+
+.roundcontainer {
+    border-radius: 10px;
+}
 /* Footer styles  */
 footer {
     background-color: rgb(40, 51, 90);
@@ -129,6 +162,47 @@ footer {
 
 .round {
     border-radius: .2em;
+}
+
+/*Style rules for figures*/
+
+figure {
+  border: 2px solid #2a1f14;
+  box-shadow: 3px 3px 6px #cccccc;
+  margin: 0 auto;
+  width: 12em;
+  display: flex;
+  flex-direction: column;
+  background-color:#ffffff;
+}
+
+figcaption {
+  padding: 1%;
+  background-color: #ffffff;
+  font-size: 0.9em;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.2;
+}
+
+/* Hobby Image styles */
+Img.HobbyImg {
+  display: block;
+  width: 12em;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+
+aside {
+  font-size: 1em;
+  line-height: 1.2em;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #efefef;
+  padding: 1em;
+  border-radius: 10px;
 }
 
 /* Mobile/Tablet visibility classes */
@@ -163,36 +237,53 @@ footer {
         max-width: 70px;
     }
 
-    /* Navigation adjustments for tablet */
-    nav {
-        text-align: right;
+    .grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 20px;
+        width: 100%;
+        margin-top: 2em;
     }
 
+    /* Navigation adjustments for tablet */
     nav ul {
-        font-size: 1.25em;
+        font-size: 1.2em;
     }
 
     nav ul li {
-        border-top: none;
-        display: inline-block;
-        margin-right: 20px;
+        margin-right: 12px;
         margin-bottom: 0;
-        padding: 0.5em;
+        padding: 0.4em 0.8em;
     }
 
     nav li a {
-        padding: 0.5em;
+        padding: 0.4em;
     }
 
-    /* Image and layout improvements for tablet */
-    Img.HeroImg {
-        width: 250px;
-        float: left;
-        margin: 0 2em 1em 0;
-    }
-
+    /* main content for tablet */
     main {
+        display: flex;
+        gap: 2em;
         padding: 2em 3em;
+    }
+
+    .image-container {
+        flex: 0 0 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        margin-bottom: 0;
+    }
+
+    Img.HeroImg {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        float: none;
+    }
+
+    .intro {
+        flex: 1;
     }
 
     p {
@@ -207,6 +298,7 @@ footer {
 /* Standard desktop */
 @media screen and (min-width: 1000px) {
     /* Header for desktop */
+
     h1 {
         font-size: 5em;
     }
@@ -220,12 +312,18 @@ footer {
     }
 
     /* Navigation for desktop */
-    nav li {
-        font-size: 1.50em;
+    nav ul {
+        font-size: 1.2em;
+    }
+
+    nav ul li {
+        margin-right: 15px;
+        margin-bottom: 0;
+        padding: 0.4em 0.8em;
     }
 
     nav li a {
-        padding: 0.5em 1.5em;
+        padding: 0.4em 0.8em;
     }
 
     nav li a:hover {
@@ -236,40 +334,56 @@ footer {
 
     /* Main content for desktop */
     main {
+        display: flex;
+        gap: 3em;
         padding: 2em 4em;
         max-width: 1200px;
         margin: 0 auto;
-    }
-
-    Img.HeroImg {
-        width: 300px;
-        margin: 0 3em 1em 0;
-    }
-
-    p {
-        font-size: 1.1em;
-        line-height: 1.6;
-    }
-
-    #info ul {
-        margin-left: 5%;
     }
 
     .grid {
         grid-template-columns: auto auto auto;
         grid-gap: 30px;
         display: grid;
+        width: 100%;
     }
 
-    aside {
-        grid-column: 1/ span 3;
-        font-size: 2em;
+
+    .image-container {
+        flex: 0 0 350px;
+        gap: 2em;
+    }
+
+    Img.HeroImg {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        float: none;
+    }
+
+    .intro {
+        flex: 1;
+    }
+
+    p {
+        font-size: 1.1em;
+        line-height: 1.6;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    #info ul {
+        margin-left: 5%;
     }
 }
 
 /* Large Desktops */
 @media screen and (min-width: 1400px) {
     /* Header for large desktop */
+
+    body {
+    background: linear-gradient(#ffffff,#a8a8a8)
+    }
+
     h1 {
         font-size: 6em;
         margin-left: 0.6em;
@@ -281,25 +395,51 @@ footer {
     }
 
     /* Navigation for large desktop */
-    nav li {
-        font-size: 1.75em;
+    nav ul {
+        font-size: 1.2em;
+    }
+
+    nav ul li {
+        margin-right: 15px;
+        margin-bottom: 0;
+        padding: 0.5em 1em;
     }
 
     nav li a {
-        padding: 0.6em 2em;
+        padding: 0.4em 0.8em;
     }
 
     /* Main content for large desktop */
     main {
+        display: flex;
+        gap: 4em;
         padding: 5em;
         max-width: 1400px;
         margin: 0 auto;
     }
 
+    .grid {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 40%;
+        width: 100%;
+    }
+
+    .image-container {
+        flex: 0 0 400px;
+        gap: 2.5em;
+    }
+
     Img.HeroImg {
-        width: 25em;
-        margin: 0 4em 1.5em 0.6em;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        float: none;
         border-width: 3px;
+    }
+
+    .intro {
+        flex: 1;
     }
 
     p {
@@ -316,3 +456,5 @@ footer {
         max-height: 60px;
     }
 }
+
+
